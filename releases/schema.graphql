@@ -1,0 +1,205 @@
+type InitializeMarket @entity {
+    id: ID!,
+	market: String,
+	request_queue: String,
+	event_queue: String,
+	bids: String,
+	asks: String,
+	coin_currency: String,
+	price_currency: String,
+	coin_currency_mint: String,
+	price_currency_mint: String,
+	rent_sysvar: String,
+	open_orders_market_authority: String,
+	prune_authority: String,
+	crank_authority: String,
+	coin_lot_size: BigInt,
+	pc_lot_size: BigInt,
+	fee_rate_bps: BigInt,
+	vault_signer_nonce: BigInt,
+	pc_dust_threshold: BigInt
+}
+type NewOrder @entity {
+    id: ID!,
+	market: String,
+	open_orders: String,
+	request_queue: String,
+	account_paying: String,
+	owner_openOrders_account: String,
+	coin_vault: String,
+	pc_vault: String,
+	token_program: String,
+	rent_sysvar: String,
+	SRM_account: String,
+	side: String,
+	limit_price: BigInt,
+	max_qty: BigInt,
+	order_type: String,
+	client_id: BigInt
+}
+type MatchOrders @entity {
+    id: ID!,
+	market: String,
+	request_queue: String,
+	event_queue: String,
+	bids: String,
+	asks: String,
+	coin_fee: String,
+	pc_fee: String,
+	value: BigInt
+}
+type ConsumeEvents @entity {
+    id: ID!,
+	value: BigInt
+}
+type CancelOrder @entity {
+    id: ID!,
+	market: String,
+	open_orders: String,
+	request_queue: String,
+	open_orders_owner: String,
+	side: String,
+	order_id: String,
+	owner: [BigInt],
+	owner_slot: BigInt
+}
+type SettleFunds @entity {
+    id: ID!,
+	market: String,
+	open_orders: String,
+	open_orders_owner: String,
+	coin_vault: String,
+	pc_vault: String,
+	coin_wallet: String,
+	pc_wallet: String,
+	vault_signer: String,
+	token_program: String,
+	referrer_pc_wallet: String
+}
+type CancelOrderByClientId @entity {
+    id: ID!,
+	market: String,
+	open_orders: String,
+	request_queue: String,
+	open_orders_owner: String,
+	value: BigInt
+}
+type DisableMarket @entity {
+    id: ID!,
+	market: String,
+	disable_authority: String
+}
+type SweepFees @entity {
+    id: ID!,
+	market: String,
+	pc_vault: String,
+	fee_sweeping_authority: String,
+	fee_receivable_account: String,
+	vault_signer: String,
+	token_program: String
+}
+type NewOrderV2 @entity {
+    id: ID!,
+	market: String,
+	open_orders: String,
+	request_queue: String,
+	account_paying_for_the_order: String,
+	open_orders_owner: String,
+	coin_vault: String,
+	pc_vault: String,
+	token_program: String,
+	rent_sysvar: String,
+	SRM_account: String,
+	side: String,
+	limit_price: BigInt,
+	max_qty: BigInt,
+	order_type: String,
+	client_id: BigInt,
+	self_trade_behavior: String
+}
+type NewOrderV3 @entity {
+    id: ID!,
+	market: String,
+	open_orders: String,
+	request_queue: String,
+	event_queue: String,
+	bids: String,
+	asks: String,
+	account_paying_for_the_order: String,
+	open_orders_owner: String,
+	coin_vault: String,
+	pc_vault: String,
+	token_program: String,
+	rent_sysvar: String,
+	side: String,
+	limit_price: BigInt,
+	max_coin_qty: BigInt,
+	max_native_pc_qty_including_fees: BigInt,
+	self_trade_behavior: String,
+	order_type: String,
+	client_order_id: BigInt,
+	limit: BigInt
+}
+type CancelOrderV2 @entity {
+    id: ID!,
+	market: String,
+	bids: String,
+	asks: String,
+	open_orders: String,
+	open_orders_owner: String,
+	event_queue: String,
+	side: String,
+	order_id: String
+}
+type CancelOrderByClientIdV2 @entity {
+    id: ID!,
+	market: String,
+	bids: String,
+	asks: String,
+	open_orders: String,
+	value: BigInt
+}
+type SendTake @entity {
+    id: ID!,
+	market: String,
+	bids: String,
+	asks: String,
+	open_orders: String,
+	side: String,
+	limit_price: BigInt,
+	max_coin_qty: BigInt,
+	max_native_pc_qty_including_fees: BigInt,
+	min_coin_qty: BigInt,
+	min_native_pc_qty: BigInt,
+	limit: BigInt
+}
+type CloseOpenOrders @entity {
+    id: ID!,
+	open_orders: String,
+	open_orders_owner: String,
+	destination_to_send_rent_exemption_sol: String,
+	market: String
+}
+type InitOpenOrders @entity {
+    id: ID!,
+	open_orders: String,
+	open_orders_owner: String,
+	market: String,
+	rent_sysvar: String,
+	open_orders_market_authority: String
+}
+type Prune @entity {
+    id: ID!,
+	market: String,
+	bids: String,
+	asks: String,
+	prune_authority: String,
+	open_orders: String,
+	open_orders_owner: String,
+	event_queue: String,
+	value: BigInt
+}
+type ConsumeEventsPermissioned @entity {
+    id: ID!,
+	value: BigInt
+}

@@ -1,0 +1,27 @@
+
+specVersion: 0.0.2
+description: Indexer for Serum
+repository: https://github.com/massbitprotocol/massbitprotocol/tree/main/user-example
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: solana
+    name: Serum-Indexer
+    network: mainnet
+    source:
+      address: 9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin
+      abi: Serum,
+      start_block: -1
+    mapping:
+      kind: solana/BlockHandler
+      apiVersion: 0.0.4
+      language: rust
+      entities:
+        - Serum
+      handlers:
+        - handler: handleBlock
+          kind: solana/BlockHandler
+      file: ./src/mapping.rs
+      abis:
+        - name: Serum
+          file: ./abis/Serum.json
