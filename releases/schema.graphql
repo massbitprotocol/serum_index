@@ -17,7 +17,8 @@ type InitializeMarket @entity {
 	pc_lot_size: BigInt,
 	fee_rate_bps: BigInt,
 	vault_signer_nonce: BigInt,
-	pc_dust_threshold: BigInt
+	pc_dust_threshold: BigInt,
+	timestamp: BigInt
 }
 type NewOrder @entity {
     id: ID!,
@@ -35,7 +36,8 @@ type NewOrder @entity {
 	limit_price: BigInt,
 	max_qty: BigInt,
 	order_type: String,
-	client_id: BigInt
+	client_id: BigInt,
+	timestamp: BigInt
 }
 type MatchOrders @entity {
     id: ID!,
@@ -46,11 +48,13 @@ type MatchOrders @entity {
 	asks: String,
 	coin_fee: String,
 	pc_fee: String,
-	value: BigInt
+	value: BigInt,
+	timestamp: BigInt
 }
 type ConsumeEvents @entity {
     id: ID!,
-	value: BigInt
+	value: BigInt,
+	timestamp: BigInt
 }
 type CancelOrder @entity {
     id: ID!,
@@ -61,7 +65,8 @@ type CancelOrder @entity {
 	side: String,
 	order_id: String,
 	owner: [BigInt],
-	owner_slot: BigInt
+	owner_slot: BigInt,
+	timestamp: BigInt
 }
 type SettleFunds @entity {
     id: ID!,
@@ -74,7 +79,8 @@ type SettleFunds @entity {
 	pc_wallet: String,
 	vault_signer: String,
 	token_program: String,
-	referrer_pc_wallet: String
+	referrer_pc_wallet: String,
+	timestamp: BigInt
 }
 type CancelOrderByClientId @entity {
     id: ID!,
@@ -82,12 +88,14 @@ type CancelOrderByClientId @entity {
 	open_orders: String,
 	request_queue: String,
 	open_orders_owner: String,
-	value: BigInt
+	value: BigInt,
+	timestamp: BigInt
 }
 type DisableMarket @entity {
     id: ID!,
 	market: String,
-	disable_authority: String
+	disable_authority: String,
+	timestamp: BigInt
 }
 type SweepFees @entity {
     id: ID!,
@@ -96,7 +104,8 @@ type SweepFees @entity {
 	fee_sweeping_authority: String,
 	fee_receivable_account: String,
 	vault_signer: String,
-	token_program: String
+	token_program: String,
+	timestamp: BigInt
 }
 type NewOrderV2 @entity {
     id: ID!,
@@ -115,7 +124,8 @@ type NewOrderV2 @entity {
 	max_qty: BigInt,
 	order_type: String,
 	client_id: BigInt,
-	self_trade_behavior: String
+	self_trade_behavior: String,
+	timestamp: BigInt
 }
 type NewOrderV3 @entity {
     id: ID!,
@@ -138,7 +148,8 @@ type NewOrderV3 @entity {
 	self_trade_behavior: String,
 	order_type: String,
 	client_order_id: BigInt,
-	limit: BigInt
+	limit: BigInt,
+	timestamp: BigInt
 }
 type CancelOrderV2 @entity {
     id: ID!,
@@ -149,7 +160,8 @@ type CancelOrderV2 @entity {
 	open_orders_owner: String,
 	event_queue: String,
 	side: String,
-	order_id: String
+	order_id: String,
+	timestamp: BigInt
 }
 type CancelOrderByClientIdV2 @entity {
     id: ID!,
@@ -157,7 +169,8 @@ type CancelOrderByClientIdV2 @entity {
 	bids: String,
 	asks: String,
 	open_orders: String,
-	value: BigInt
+	value: BigInt,
+	timestamp: BigInt
 }
 type SendTake @entity {
     id: ID!,
@@ -171,14 +184,16 @@ type SendTake @entity {
 	max_native_pc_qty_including_fees: BigInt,
 	min_coin_qty: BigInt,
 	min_native_pc_qty: BigInt,
-	limit: BigInt
+	limit: BigInt,
+	timestamp: BigInt
 }
 type CloseOpenOrders @entity {
     id: ID!,
 	open_orders: String,
 	open_orders_owner: String,
 	destination_to_send_rent_exemption_sol: String,
-	market: String
+	market: String,
+	timestamp: BigInt
 }
 type InitOpenOrders @entity {
     id: ID!,
@@ -186,7 +201,8 @@ type InitOpenOrders @entity {
 	open_orders_owner: String,
 	market: String,
 	rent_sysvar: String,
-	open_orders_market_authority: String
+	open_orders_market_authority: String,
+	timestamp: BigInt
 }
 type Prune @entity {
     id: ID!,
@@ -197,9 +213,11 @@ type Prune @entity {
 	open_orders: String,
 	open_orders_owner: String,
 	event_queue: String,
-	value: BigInt
+	value: BigInt,
+	timestamp: BigInt
 }
 type ConsumeEventsPermissioned @entity {
     id: ID!,
-	value: BigInt
+	value: BigInt,
+	timestamp: BigInt
 }
